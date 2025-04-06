@@ -45,7 +45,7 @@ export default function Hero() {
               <div className="mt-10 flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-6 text-sm text-gray-600">
                 <div className="flex items-center gap-2">
                   <Check className="w-5 h-5 text-[#7C9D65]" />
-                  <span>100% organski proizvodi</span>
+                  <span>100% neprskani proizvodi</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Check className="w-5 h-5 text-[#7C9D65]" />
@@ -61,8 +61,8 @@ export default function Hero() {
             <div className="mt-8 md:mt-0 md:w-1/2 relative">
               <div className="relative h-[300px] sm:h-[400px] w-full rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1627661055476-e795bd005732?w=800&q=80"
-                  alt="Sveže organsko povrće"
+                  src="/vegetable-basket.jpg"
+                  alt="Sveža organska korpa povrća"
                   fill
                   className="object-cover"
                   priority
