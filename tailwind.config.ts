@@ -52,11 +52,19 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        seoskaGreen: "#7C9D65",
+        seoskaLightGreen: "#f0f4e8",
+        seoskaBrown: "#4E342E",
+        seoskaBeige: "#FAF6F0",
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      fontFamily: {
+        amatic: ["'Amatic SC'", "cursive"],
+        quicksand: ["'Quicksand'", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
