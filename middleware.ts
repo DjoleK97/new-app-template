@@ -3,7 +3,16 @@ import { updateSession } from "./supabase/middleware";
 import { type NextRequest } from "next/server";
 
 export async function middleware(request: NextRequest) {
-  return await updateSession(request);
+  try {
+    return await updateSession(request);
+  } catch (error) {
+    console.error("Root middleware error:", error);
+    // Return a response even if there's an error to prevent the request from hanging
+    return Response.json(
+      { success: false, message: "Internal server error" },
+      { status: 500 },
+    );
+  }
 }
 
 export const config = {

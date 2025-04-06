@@ -72,13 +72,18 @@ export default function UserProfile() {
             <Link href="/admin">Admin ekran</Link>
           </DropdownMenuItem>
         )}
-        <DropdownMenuItem
-          onClick={async () => {
-            await supabase.auth.signOut();
-            router.refresh();
-          }}
-        >
-          Odjavi se
+        <DropdownMenuItem asChild>
+          <form
+            action={async () => {
+              // Use the server action for sign out to ensure message is set
+              const { signOutAction } = await import("@/app/actions");
+              await signOutAction();
+            }}
+          >
+            <button className="w-full text-left px-2 py-1.5 text-sm">
+              Odjavi se
+            </button>
+          </form>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

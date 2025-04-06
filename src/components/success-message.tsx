@@ -11,12 +11,15 @@ export default function SuccessMessage({ message }: SuccessMessageProps) {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
+    // Show message immediately when component mounts
+    setVisible(true);
+
     const timer = setTimeout(() => {
       setVisible(false);
     }, 5000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [message]); // Re-run when message changes
 
   if (!visible) return null;
 

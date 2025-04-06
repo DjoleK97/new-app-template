@@ -8,6 +8,7 @@ import {
   ClipboardList,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import LogoutButton from "@/components/logout-button";
 
 export const metadata: Metadata = {
   title: "Admin Panel - Seoska Korpa",
@@ -38,9 +39,7 @@ export default function AdminPage() {
             </h1>
           </div>
           <div>
-            <Button variant="outline" className="text-sm">
-              Odjavi se
-            </Button>
+            <LogoutButton variant="outline" className="text-sm" />
           </div>
         </div>
       </header>
