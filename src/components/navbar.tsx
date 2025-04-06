@@ -68,6 +68,20 @@ export default function Navbar() {
             >
               Kontakt
             </Link>
+            <div className="flex items-center space-x-4">
+              <Link
+                href="/sign-in"
+                className="text-gray-700 hover:text-seoskaGreen font-quicksand transition-colors"
+              >
+                Prijava
+              </Link>
+              <Link
+                href="/sign-up"
+                className="text-gray-700 hover:text-seoskaGreen font-quicksand transition-colors"
+              >
+                Registracija
+              </Link>
+            </div>
             <Link href="/sastavi-korpu">
               <Button className="bg-seoskaGreen hover:bg-seoskaGreen/90 text-white font-quicksand">
                 Poruči odmah
@@ -114,6 +128,20 @@ export default function Navbar() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Kontakt
+              </Link>
+              <Link
+                href="/sign-in"
+                className="text-gray-700 hover:text-seoskaGreen font-quicksand transition-colors px-4 py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Prijava
+              </Link>
+              <Link
+                href="/sign-up"
+                className="text-gray-700 hover:text-seoskaGreen font-quicksand transition-colors px-4 py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Registracija
               </Link>
               <div className="px-4 py-2">
                 <Link href="/sastavi-korpu">
