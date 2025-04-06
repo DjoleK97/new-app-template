@@ -3,6 +3,7 @@ import "./globals.css";
 import Script from "next/script";
 import { TempoInit } from "@/components/tempo-init";
 import { ThemeProvider } from "@/components/theme-provider";
+import GlobalMessage from "@/components/global-message";
 
 export const metadata: Metadata = {
   title: "Seoska Korpa - Priroda iz naše bašte",
@@ -37,6 +38,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <GlobalMessage />
           {children}
         </ThemeProvider>
         <TempoInit />
