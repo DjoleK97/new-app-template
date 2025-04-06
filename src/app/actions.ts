@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "../../supabase/server";
 
 // Helper function to set cookies and redirect
-export function encodedRedirect(
+export async function encodedRedirect(
   type: "error" | "success",
   path: string,
   message: string,
