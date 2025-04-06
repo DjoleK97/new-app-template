@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   return (
@@ -26,12 +29,11 @@ export default function Hero() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center">
-                <Link
-                  href="/sastavi-korpu"
-                  className="inline-flex items-center px-8 py-4 text-white bg-[#7C9D65] rounded-lg hover:bg-[#6a8a53] transition-colors text-lg font-medium"
-                >
-                  Sastavi svoju korpu
-                  <ArrowUpRight className="ml-2 w-5 h-5" />
+                <Link href="/sastavi-korpu">
+                  <Button className="inline-flex items-center px-8 py-4 text-white bg-[#7C9D65] hover:bg-[#6a8a53] transition-colors text-lg font-medium">
+                    Sastavi svoju korpu
+                    <ArrowUpRight className="ml-2 w-5 h-5" />
+                  </Button>
                 </Link>
 
                 <Link

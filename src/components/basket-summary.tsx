@@ -1,6 +1,9 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
+import { isOrdersEnabled } from "@/utils/settings";
+import OrderDisabledBanner from "./OrderDisabledBanner";
 
 interface BasketItem {
   id: number;
@@ -21,6 +24,26 @@ export default function BasketSummary({
   onRemoveItem,
   onUpdateQuantity,
 }: BasketSummaryProps) {
+  const [ordersEnabled, setOrdersEnabled] = useState<boolean | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const checkOrdersStatus = async () => {
+      setIsLoading(true);
+      try {
+        const enabled = await isOrdersEnabled();
+        setOrdersEnabled(enabled);
+      } catch (error) {
+        console.error("Error checking orders status:", error);
+        setOrdersEnabled(true); // Default to enabled if there's an error
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    checkOrdersStatus();
+  }, []);
+
   const totalPrice = items.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0,
@@ -57,6 +80,8 @@ export default function BasketSummary({
         Tvoja korpa
       </h2>
 
+      <OrderDisabledBanner />
+
       <div className="space-y-4 max-h-[50vh] overflow-y-auto pr-2">
         {items.map((item) => (
           <div
@@ -83,6 +108,7 @@ export default function BasketSummary({
                       }
                       className="px-2 text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-l-md focus:outline-none"
                       aria-label="Smanji količinu"
+                      disabled={ordersEnabled === false}
                     >
                       -
                     </button>
@@ -98,6 +124,7 @@ export default function BasketSummary({
                       }
                       className="px-2 text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-r-md focus:outline-none"
                       aria-label="Povećaj količinu"
+                      disabled={ordersEnabled === false}
                     >
                       +
                     </button>
@@ -113,6 +140,7 @@ export default function BasketSummary({
                 <button
                   onClick={() => onRemoveItem(item.id)}
                   className="text-xs text-red-500 hover:text-red-700 mt-1"
+                  disabled={ordersEnabled === false}
                 >
                   Ukloni
                 </button>
@@ -129,8 +157,15 @@ export default function BasketSummary({
         </p>
       </div>
 
-      <Button className="w-full bg-seoskaGreen hover:bg-seoskaGreen/90 text-white font-quicksand py-3 px-4 rounded-md mt-4">
-        Završi porudžbinu
+      <Button
+        className="w-full bg-seoskaGreen hover:bg-seoskaGreen/90 text-white font-quicksand py-3 px-4 rounded-md mt-4"
+        disabled={ordersEnabled === false || isLoading}
+      >
+        {ordersEnabled === false
+          ? "Poručivanje nije dostupno"
+          : isLoading
+            ? "Učitavanje..."
+            : "Završi porudžbinu"}
       </Button>
     </div>
   );

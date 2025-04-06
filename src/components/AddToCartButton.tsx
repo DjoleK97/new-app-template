@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { addToCart } from "@/lib/cart";
+import { isOrdersEnabled } from "@/utils/settings";
 
 interface AddToCartButtonProps {
   productId: string;
@@ -25,8 +26,25 @@ export default function AddToCartButton({
   onError,
 }: AddToCartButtonProps) {
   const [isLoading, setIsLoading] = useState(false);
+  const [ordersEnabled, setOrdersEnabled] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const checkOrdersStatus = async () => {
+      try {
+        const enabled = await isOrdersEnabled();
+        setOrdersEnabled(enabled);
+      } catch (error) {
+        console.error("Error checking orders status:", error);
+        setOrdersEnabled(true); // Default to enabled if there's an error
+      }
+    };
+
+    checkOrdersStatus();
+  }, []);
 
   const handleAddToCart = async () => {
+    if (ordersEnabled === false) return;
+
     setIsLoading(true);
 
     try {
@@ -43,10 +61,14 @@ export default function AddToCartButton({
   return (
     <Button
       onClick={handleAddToCart}
-      disabled={isLoading}
+      disabled={isLoading || ordersEnabled === false}
       className={`bg-seoskaGreen hover:bg-seoskaGreen/90 text-white ${className}`}
     >
-      {isLoading ? "Dodaje se..." : "Dodaj u korpu"}
+      {ordersEnabled === false
+        ? "Poručivanje nije dostupno"
+        : isLoading
+          ? "Dodaje se..."
+          : "Dodaj u korpu"}
     </Button>
   );
 }
