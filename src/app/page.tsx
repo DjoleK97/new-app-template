@@ -7,7 +7,6 @@ import HowToOrder from "@/components/how-to-order";
 import WhyChooseUs from "@/components/why-choose-us";
 import FarmStories from "@/components/farm-stories";
 import Contact from "@/components/contact";
-import OrderDisabledBanner from "@/components/OrderDisabledBanner";
 import { createClient } from "../../supabase/server";
 
 export default async function Home() {
@@ -19,9 +18,6 @@ export default async function Home() {
   return (
     <div className="min-h-screen bg-white font-quicksand">
       <Navbar />
-      <div className="container mx-auto px-4">
-        <OrderDisabledBanner />
-      </div>
       <Hero />
       <ProductCategories />
       <FeaturedProducts />

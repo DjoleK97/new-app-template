@@ -4,6 +4,7 @@ import Script from "next/script";
 import { TempoInit } from "@/components/tempo-init";
 import { ThemeProvider } from "@/components/theme-provider";
 import GlobalMessage from "@/components/global-message";
+import OrderDisabledBanner from "@/components/OrderDisabledBanner";
 
 export const metadata: Metadata = {
   title: "Seoska Korpa - Priroda iz naše bašte",
@@ -31,13 +32,14 @@ export default function RootLayout({
         />
       </head>
       <Script src="https://api.tempolabs.ai/proxy-asset?url=https://storage.googleapis.com/tempo-public-assets/error-handling.js" />
-      <body className="font-quicksand">
+      <body className="font-quicksand pt-10">
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
+          <OrderDisabledBanner />
           <GlobalMessage />
           {children}
         </ThemeProvider>
