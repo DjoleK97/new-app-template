@@ -17,11 +17,12 @@ export default function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link
-            href="/"
-            className="text-2xl font-bold font-amatic text-seoskaGreen"
-          >
-            Seoska korpa
+          <Link href="/" className="flex items-center">
+            <img
+              src="/logo/logo.png"
+              alt="Seoska korpa"
+              className="h-16 w-auto"
+            />
           </Link>
 
           {/* Mobile Menu Button */}

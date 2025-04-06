@@ -29,8 +29,7 @@ const baskets: BasketProps[] = [
       "Jabuke (1kg)",
     ],
     price: "1500 RSD",
-    image:
-      "https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=800&q=80",
+    image: "/images/baskets/small-basket.jpg",
     persons: "1-2 osobe",
   },
   {
@@ -49,8 +48,7 @@ const baskets: BasketProps[] = [
       "Tikvice (2 kom)",
     ],
     price: "2500 RSD",
-    image:
-      "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&q=80",
+    image: "/images/baskets/large-basket.jpg",
     persons: "2-3 osobe",
   },
   {
@@ -72,8 +70,7 @@ const baskets: BasketProps[] = [
       "Crni luk (1kg)",
     ],
     price: "3800 RSD",
-    image:
-      "https://images.unsplash.com/photo-1627735483792-c3a1b33bd295?w=800&q=80",
+    image: "/images/baskets/family-basket.jpg",
     persons: "4-5 osoba",
   },
 ];

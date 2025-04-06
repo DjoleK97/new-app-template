@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+Disallow: /tempobook/
+
+Sitemap: https://seoskakorpa.rs/sitemap.xml

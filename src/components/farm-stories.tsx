@@ -7,8 +7,7 @@ export default function FarmStories() {
       title: "Porodica Petrović",
       description:
         "Paradajz iz Grocke. Već tri generacije uzgajamo organsko povrće na obroncima Fruške Gore. Naš paradajz je poznat po svom jedinstvenom ukusu.",
-      image:
-        "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800&q=80",
+      image: "/images/farms/farm1.jpg",
       alt: "Porodica Petrović na svojoj farmi",
     },
     {
@@ -16,8 +15,7 @@ export default function FarmStories() {
       title: "Farma Sunčev breg",
       description:
         "Specijalizovani smo za proizvodnju organskog povrća. Naš paradajz i paprika su uzgajani na tradicionalan način, bez ikakvih hemikalija.",
-      image:
-        "https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?w=800&q=80",
+      image: "/images/farms/farm2.jpg",
       alt: "Farma Sunčev breg",
     },
     {
@@ -25,8 +23,7 @@ export default function FarmStories() {
       title: "Pčelarstvo Medeni raj",
       description:
         "Naše pčele sakupljaju nektar sa livada punih divljeg cveća, stvarajući med koji je bogat prirodnim antioksidansima i mineralima.",
-      image:
-        "https://images.unsplash.com/photo-1587382923162-5d1389c5c512?w=800&q=80",
+      image: "/images/farms/farm3.jpg",
       alt: "Pčelarstvo Medeni raj",
     },
   ];

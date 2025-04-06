@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Twitter, Linkedin, Facebook, Instagram } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -104,21 +103,11 @@ export default function Footer() {
                   href="#"
                   className="text-gray-600 hover:text-green-600 flex items-center gap-2"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                  </svg>
+                  <img
+                    src="/images/icons/instagram.svg"
+                    alt="Instagram"
+                    className="w-4 h-4"
+                  />
                   Instagram
                 </Link>
               </li>
@@ -127,19 +116,11 @@ export default function Footer() {
                   href="#"
                   className="text-gray-600 hover:text-green-600 flex items-center gap-2"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                  </svg>
+                  <img
+                    src="/images/icons/facebook.svg"
+                    alt="Facebook"
+                    className="w-4 h-4"
+                  />
                   Facebook
                 </Link>
               </li>
@@ -155,19 +136,35 @@ export default function Footer() {
           <div className="flex space-x-6">
             <a href="#" className="text-gray-400 hover:text-green-600">
               <span className="sr-only">Facebook</span>
-              <Facebook className="h-6 w-6" />
+              <img
+                src="/images/icons/facebook.svg"
+                alt="Facebook"
+                className="h-6 w-6"
+              />
             </a>
             <a href="#" className="text-gray-400 hover:text-green-600">
               <span className="sr-only">Instagram</span>
-              <Instagram className="h-6 w-6" />
+              <img
+                src="/images/icons/instagram.svg"
+                alt="Instagram"
+                className="h-6 w-6"
+              />
             </a>
             <a href="#" className="text-gray-400 hover:text-green-600">
               <span className="sr-only">Twitter</span>
-              <Twitter className="h-6 w-6" />
+              <img
+                src="/images/icons/twitter.svg"
+                alt="Twitter"
+                className="h-6 w-6"
+              />
             </a>
             <a href="#" className="text-gray-400 hover:text-green-600">
               <span className="sr-only">LinkedIn</span>
-              <Linkedin className="h-6 w-6" />
+              <img
+                src="/images/icons/linkedin.svg"
+                alt="LinkedIn"
+                className="h-6 w-6"
+              />
             </a>
           </div>
         </div>

@@ -1,5 +1,3 @@
-import { Mail, MapPin, Phone } from "lucide-react";
-
 export default function Contact() {
   return (
     <section id="contact" className="py-16 bg-white">
@@ -16,7 +14,11 @@ export default function Contact() {
             <div className="space-y-6">
               <div className="flex items-start">
                 <div className="bg-green-100 p-3 rounded-full mr-4">
-                  <MapPin className="h-6 w-6 text-green-600" />
+                  <img
+                    src="/images/icons/map-pin.svg"
+                    alt="Location"
+                    className="h-6 w-6 text-green-600"
+                  />
                 </div>
                 <div>
                   <h4 className="font-semibold">Adresa</h4>
@@ -28,7 +30,11 @@ export default function Contact() {
 
               <div className="flex items-start">
                 <div className="bg-green-100 p-3 rounded-full mr-4">
-                  <Phone className="h-6 w-6 text-green-600" />
+                  <img
+                    src="/images/icons/phone.svg"
+                    alt="Phone"
+                    className="h-6 w-6 text-green-600"
+                  />
                 </div>
                 <div>
                   <h4 className="font-semibold">Telefon</h4>
@@ -38,7 +44,11 @@ export default function Contact() {
 
               <div className="flex items-start">
                 <div className="bg-green-100 p-3 rounded-full mr-4">
-                  <Mail className="h-6 w-6 text-green-600" />
+                  <img
+                    src="/images/icons/mail.svg"
+                    alt="Email"
+                    className="h-6 w-6 text-green-600"
+                  />
                 </div>
                 <div>
                   <h4 className="font-semibold">Email</h4>
@@ -48,22 +58,11 @@ export default function Contact() {
 
               <div className="flex items-start">
                 <div className="bg-green-100 p-3 rounded-full mr-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                  <img
+                    src="/images/icons/instagram.svg"
+                    alt="Instagram"
                     className="h-6 w-6 text-green-600"
-                  >
-                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                  </svg>
+                  />
                 </div>
                 <div>
                   <h4 className="font-semibold">Instagram</h4>

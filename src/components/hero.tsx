@@ -61,10 +61,10 @@ export default function Hero() {
             <div className="mt-8 md:mt-0 md:w-1/2 relative">
               <div className="relative h-[300px] sm:h-[400px] w-full rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/vegetable-basket.jpg"
+                  src="/images/hero/basket-hero.png"
                   alt="Sveža organska korpa povrća"
                   fill
-                  className="object-cover"
+                  className="object-contain"
                   priority
                 />
               </div>

@@ -37,22 +37,19 @@ export default function FeaturedProducts() {
       name: "Paradajz",
       note: "Ubran danas",
       price: "180 RSD",
-      imageSrc:
-        "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=500&q=80",
+      imageSrc: "/images/products/tomato.jpg",
     },
     {
       name: "Domaća jaja",
       note: "Sveža",
       price: "250 RSD",
-      imageSrc:
-        "https://images.unsplash.com/photo-1598965675045-45c5e72c7d05?w=500&q=80",
+      imageSrc: "/images/products/eggs.jpg",
     },
     {
       name: "Kukuruzno brašno",
       note: "Domaće",
       price: "220 RSD",
-      imageSrc:
-        "https://images.unsplash.com/photo-1604599886859-7aa3e5a43de2?w=500&q=80",
+      imageSrc: "/images/products/cornflour.jpg",
     },
   ];
 

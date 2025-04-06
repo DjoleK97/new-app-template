@@ -1,20 +1,26 @@
 import Link from "next/link";
+import Image from "next/image";
 
 type CategoryProps = {
   title: string;
-  emoji: string;
+  icon: string;
   href: string;
 };
 
-function CategoryCard({ title, emoji, href }: CategoryProps) {
+function CategoryCard({ title, icon, href }: CategoryProps) {
   return (
     <Link
       href={href}
       className="flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100 hover:border-seoskaGreen group"
     >
-      <span className="text-4xl mb-3 group-hover:scale-110 transition-transform">
-        {emoji}
-      </span>
+      <div className="relative w-16 h-16 mb-3">
+        <Image
+          src={icon}
+          alt={title}
+          fill
+          className="object-contain group-hover:scale-110 transition-transform"
+        />
+      </div>
       <h3 className="font-quicksand font-medium text-gray-800 group-hover:text-seoskaGreen transition-colors">
         {title}
       </h3>
@@ -24,10 +30,26 @@ function CategoryCard({ title, emoji, href }: CategoryProps) {
 
 export default function ProductCategories() {
   const categories = [
-    { title: "Povrće", emoji: "🥦", href: "/kategorije/povrce" },
-    { title: "Jaja", emoji: "🥚", href: "/kategorije/jaja" },
-    { title: "Brašno", emoji: "🌽", href: "/kategorije/brasno" },
-    { title: "Naše korpe", emoji: "🧺", href: "/nase-korpe" },
+    {
+      title: "Povrće",
+      icon: "/images/categories/vegetable.svg",
+      href: "/kategorije/povrce",
+    },
+    {
+      title: "Jaja",
+      icon: "/images/categories/eggs.svg",
+      href: "/kategorije/jaja",
+    },
+    {
+      title: "Brašno",
+      icon: "/images/categories/flour.svg",
+      href: "/kategorije/brasno",
+    },
+    {
+      title: "Naše korpe",
+      icon: "/images/categories/basket.svg",
+      href: "/nase-korpe",
+    },
   ];
 
   return (
@@ -38,7 +60,7 @@ export default function ProductCategories() {
             <CategoryCard
               key={index}
               title={category.title}
-              emoji={category.emoji}
+              icon={category.icon}
               href={category.href}
             />
           ))}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import ProductCard from "./product-card";
 
 // Dummy product data
@@ -11,8 +12,7 @@ const products = [
     description: "Sveži paradajz iz našeg plastenika",
     price: 180,
     unit: "kg",
-    image:
-      "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=500&q=80",
+    image: "/images/products/tomato.jpg",
   },
   {
     id: 2,
@@ -20,8 +20,7 @@ const products = [
     description: "Sveži krastavci iz bašte",
     price: 150,
     unit: "kg",
-    image:
-      "https://images.unsplash.com/photo-1604977042946-1eecc30f269e?w=500&q=80",
+    image: "/images/products/cucumber.jpg",
   },
   {
     id: 3,
@@ -29,8 +28,7 @@ const products = [
     description: "Sveži mladi luk iz bašte",
     price: 80,
     unit: "veza",
-    image:
-      "https://images.unsplash.com/photo-1580201092675-a0a6a6cafbb1?w=500&q=80",
+    image: "/images/products/onion.jpg",
   },
   {
     id: 4,
@@ -38,8 +36,7 @@ const products = [
     description: "Organski krompir sa naše farme",
     price: 120,
     unit: "kg",
-    image:
-      "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=500&q=80",
+    image: "/images/products/potato.jpg",
   },
   {
     id: 5,
@@ -47,8 +44,7 @@ const products = [
     description: "Slatka paprika iz našeg plastenika",
     price: 200,
     unit: "kg",
-    image:
-      "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=500&q=80",
+    image: "/images/products/pepper.jpg",
   },
   {
     id: 6,
@@ -56,8 +52,7 @@ const products = [
     description: "Sveža šargarepa iz bašte",
     price: 130,
     unit: "kg",
-    image:
-      "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=500&q=80",
+    image: "/images/products/carrot.jpg",
   },
 ];
 
