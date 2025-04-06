@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { addToCart } from "@/lib/cart";
 import { isOrdersEnabled } from "@/utils/settings";
+import { getSessionId } from "@/utils/session";
 
 interface AddToCartButtonProps {
   productId: string;
@@ -28,10 +29,14 @@ export default function AddToCartButton({
   const [isLoading, setIsLoading] = useState(false);
   const [ordersEnabled, setOrdersEnabled] = useState<boolean | null>(null);
 
+  console.log("AddToCartButton mounted for product:", productId);
+
   useEffect(() => {
     const checkOrdersStatus = async () => {
       try {
+        console.log("Checking if orders are enabled...");
         const enabled = await isOrdersEnabled();
+        console.log("Orders enabled status:", enabled);
         setOrdersEnabled(enabled);
       } catch (error) {
         console.error("Error checking orders status:", error);
@@ -40,19 +45,64 @@ export default function AddToCartButton({
     };
 
     checkOrdersStatus();
+
+    // Only log session ID on client side to avoid hydration issues
+    if (typeof window !== "undefined") {
+      // Use setTimeout to ensure this runs after hydration
+      setTimeout(() => {
+        const sessionId = getSessionId();
+        console.log("Current session ID:", sessionId);
+      }, 0);
+    }
   }, []);
 
   const handleAddToCart = async () => {
-    if (ordersEnabled === false) return;
+    console.log("Clicked Add to Cart button");
+
+    if (ordersEnabled === false) {
+      console.log("Orders are disabled, not proceeding");
+      return;
+    }
 
     setIsLoading(true);
+    console.log("Calling addToCart with:", {
+      productId,
+      quantity: initialQuantity,
+      unit,
+    });
 
     try {
       await addToCart(productId, initialQuantity, unit);
-      onSuccess?.();
+      console.log("✅ Proizvod uspešno dodat u korpu");
+      alert("Proizvod je dodat u korpu!");
+      // Temporarily comment out onSuccess to avoid silent overrides
+      // onSuccess?.();
     } catch (error) {
-      console.error("Failed to add item to cart:", error);
-      onError?.(error as Error);
+      console.error("❌ Greška prilikom dodavanja u korpu:", error);
+      let errorMessage = "";
+
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      } else if (typeof error === "object" && error !== null) {
+        try {
+          // Try to extract more detailed error information
+          const errorObj = error as any;
+          if (errorObj.code && errorObj.message) {
+            errorMessage = `Code: ${errorObj.code}, Message: ${errorObj.message}`;
+          } else {
+            errorMessage = JSON.stringify(error);
+          }
+        } catch {
+          errorMessage = JSON.stringify(error);
+        }
+      } else {
+        errorMessage = String(error);
+      }
+
+      console.error("Error details:", errorMessage);
+      alert("Došlo je do greške prilikom dodavanja u korpu: " + errorMessage);
+      // Temporarily comment out onError to avoid silent overrides
+      // onError?.(error as Error);
     } finally {
       setIsLoading(false);
     }

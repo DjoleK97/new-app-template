@@ -1,15 +1,24 @@
+"use client";
+
 import Image from "next/image";
 import { Search, SlidersHorizontal } from "lucide-react";
 import { Button } from "./ui/button";
+import AddToCartButton from "./AddToCartButton";
 
 type ProductProps = {
+  id: string;
   name: string;
   note: string;
   price: string;
   imageSrc: string;
 };
 
-function ProductCard({ name, note, price, imageSrc }: ProductProps) {
+function ProductCard({ id, name, note, price, imageSrc }: ProductProps) {
+  const handleAddToCartClick = () => {
+    console.log("Manual button clicked for product:", id);
+    alert(`Clicked Add to Cart for ${name}`);
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow">
       <div className="relative h-48 w-full">
@@ -22,9 +31,21 @@ function ProductCard({ name, note, price, imageSrc }: ProductProps) {
         <p className="text-sm text-seoskaGreen mb-2">{note}</p>
         <div className="flex justify-between items-center mt-4">
           <span className="font-bold text-gray-800">{price}</span>
-          <Button className="bg-seoskaGreen hover:bg-seoskaGreen/90 text-white text-sm px-3 py-1 h-auto">
-            Dodaj u korpu
+
+          {/* Regular button for testing */}
+          <Button
+            onClick={handleAddToCartClick}
+            className="bg-seoskaGreen hover:bg-seoskaGreen/90 text-white text-sm px-3 py-1 h-auto"
+          >
+            Dodaj u korpu (Test)
           </Button>
+
+          {/* Uncomment to test with AddToCartButton component */}
+          {/* <AddToCartButton
+            productId={id}
+            unit="kom"
+            className="text-sm px-3 py-1 h-auto"
+          /> */}
         </div>
       </div>
     </div>
@@ -34,18 +55,21 @@ function ProductCard({ name, note, price, imageSrc }: ProductProps) {
 export default function FeaturedProducts() {
   const products = [
     {
+      id: "product-1",
       name: "Paradajz",
       note: "Ubran danas",
       price: "180 RSD",
       imageSrc: "/images/products/tomato.jpg",
     },
     {
+      id: "product-2",
       name: "Domaća jaja",
       note: "Sveža",
       price: "250 RSD",
       imageSrc: "/images/products/eggs.jpg",
     },
     {
+      id: "product-3",
       name: "Kukuruzno brašno",
       note: "Domaće",
       price: "220 RSD",
@@ -86,6 +110,7 @@ export default function FeaturedProducts() {
           {products.map((product, index) => (
             <ProductCard
               key={index}
+              id={product.id}
               name={product.name}
               note={product.note}
               price={product.price}
