@@ -56,6 +56,13 @@ const config = {
         seoskaLightGreen: "#f0f4e8",
         seoskaBrown: "#4E342E",
         seoskaBeige: "#FAF6F0",
+        seoskaWarmGreen: "#8AAD75",
+        seoskaOlive: "#A9B18F",
+        seoskaEarth: "#D7C9AA",
+        seoskaWarmBeige: "#F2EEE5",
+        seoskaWarmBrown: "#5D4037",
+        seoskaAccent: "#E6A65D",
+        seoskaAccentLight: "#F8E3C5",
       },
       borderRadius: {
         lg: "var(--radius)",

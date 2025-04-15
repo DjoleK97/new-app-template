@@ -29,23 +29,28 @@ export default function ProductCard({
   const { name, description, price, unit, image } = product;
 
   const handleIncrement = () => {
-    onQuantityChange(Math.min(quantity + 1, 10));
+    if (typeof onQuantityChange === "function") {
+      onQuantityChange(Math.min(quantity + 1, 10));
+    }
   };
 
   const handleDecrement = () => {
-    onQuantityChange(Math.max(quantity - 1, 0));
+    if (typeof onQuantityChange === "function") {
+      onQuantityChange(Math.max(quantity - 1, 0));
+    }
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-      <div className="relative h-48 w-full">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 group">
+      <div className="relative h-48 w-full overflow-hidden">
         <Image
           src={image}
           alt={name}
           fill
-          className="object-cover"
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </div>
       <div className="p-4">
         <h3 className="text-xl font-quicksand font-semibold text-seoskaBrown">
@@ -75,10 +80,29 @@ export default function ProductCard({
             </button>
           </div>
           <Button
-            onClick={onAddToCart}
+            onClick={() =>
+              typeof onAddToCart === "function" ? onAddToCart() : null
+            }
             disabled={quantity === 0}
-            className="bg-seoskaGreen hover:bg-seoskaGreen/90 text-white"
+            variant="seoskaGreen"
+            className="group"
           >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="mr-1.5 group-hover:scale-110 transition-transform"
+            >
+              <path
+                d="M12 5V19M5 12H19"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
             Dodaj
           </Button>
         </div>
