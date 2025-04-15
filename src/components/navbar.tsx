@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 import UserProfile from "./user-profile";
 import { createClient } from "../../supabase/client";
+import { CartDrawer } from "./cart/cart-drawer";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -84,8 +85,9 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          {/* Mobile Menu Button and Cart Icon */}
+          <div className="md:hidden flex items-center gap-4">
+            <CartDrawer />
             <button
               onClick={toggleMenu}
               className="text-gray-700 hover:text-seoskaGreen transition-colors"
@@ -128,8 +130,9 @@ export default function Navbar() {
               Kontakt
             </Link>
 
-            {/* Order button and auth section in correct order */}
+            {/* Cart, Order button and auth section in correct order */}
             <div className="flex items-center space-x-4">
+              <CartDrawer />
               <Link href="/sastavi-korpu">
                 <Button className="bg-seoskaGreen hover:bg-seoskaGreen/90 text-white font-quicksand">
                   Poruči odmah

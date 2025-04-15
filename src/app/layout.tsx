@@ -5,6 +5,8 @@ import { TempoInit } from "@/components/tempo-init";
 import { ThemeProvider } from "@/components/theme-provider";
 import GlobalMessage from "@/components/global-message";
 import OrderDisabledBanner from "@/components/OrderDisabledBanner";
+import { CartProvider } from "@/components/cart/cart-context";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Seoska Korpa - Priroda iz naše bašte",
@@ -39,9 +41,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <OrderDisabledBanner />
-          <GlobalMessage />
-          {children}
+          <CartProvider>
+            <OrderDisabledBanner />
+            <GlobalMessage />
+            {children}
+            <Toaster />
+          </CartProvider>
         </ThemeProvider>
         <TempoInit />
       </body>
